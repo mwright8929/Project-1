@@ -4,13 +4,24 @@ $("#searchButton").on("click", function () {
     // console.log("search for this:" + charityPull);
 });
 
+$("#charInfo").on("click", function (){
+    console.log("clicking names for fun");
+    $("#contentInformation > tbody").append("<div class='card m-3'><div class='card-body'>" + response[i].tagLine + "</div></div>");
+});
+
 function charityPull() {
     console.log("got into charityPull");
     var searchTerm = $("#search-term").val();
     console.log(searchTerm);
     var key = "811f3796206861ae75e263c9f204ca17";
     var APP_ID = "caa9091c";
-    var queryURL = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + APP_ID + "&app_key=" + key + "&search=" + searchTerm;
+    
+    // rated is used to make sure if the charity has been fully verified and rated
+    // turn to false if it doesn't matter whether the charity hasn't been verified/rated
+    var rated = "true";
+    // rating is used to make sure only charities that are ranked 4-starts/4-stars are shown
+    var rating = "4";
+    var queryURL = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + APP_ID + "&app_key=" + key + "&search=" + searchTerm + "&rated=" + rated + "&minRating=" + rating;
     console.log(queryURL);
     $.ajax({
         url: queryURL,
@@ -25,7 +36,7 @@ function charityPull() {
             console.log(result);
             // console.log(charName);
             // console.log(charAddress);
-            $("#contentInformation > tbody").append("<tr><td>" + charName + "</td><td>" + charAddress + "</td>")
+            $("#contentInformation > tbody").append("<tr><td id='charInfo'>" + charName + "</td><td id='charMap'>" + charAddress + "</td>")
             $("#search-term").val("");
         }
     })
