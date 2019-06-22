@@ -1,3 +1,26 @@
 img, #charInfo, #charMap {
     cursor: pointer;
 }
+
+body{
+    background-image: url("../images/charityBackground.jpg");
+    background-size:2000px;
+    background-repeat: no-repeat;
+    background-position-x:center;
+}
+
+#box1{
+    /*border:1px solid black;*/
+    height:400px;
+    width:600px;
+    margin:auto;
+}
+
+.logo{
+    height:300px;
+    margin:0px 0px 0px 40px;
+}
+
+.search{
+    margin:0px 0px 0px 250px;
+}
