@@ -5,9 +5,9 @@ $("#searchButton").on("click", function (event) {
     console.log("searchButton");
 });
 
-$("#charInfo").on("click", function (){
+$("body").on("click", "#charInfo", function (response){
     console.log("charInfo");
-    $("#contentInformation > tbody").append("<div class='card m-3'><div class='card-body'>" + response[i].mission + "</div></div>");
+    $("#contentInformation > tbody > tr > td > #charInfo").append("<div class='card m-3'><div class='card-body'>" + response.mission + "</div></div>");
 });
 
 function charityPull() {
@@ -36,7 +36,7 @@ function charityPull() {
             console.log(result);
             // console.log(charName);
             // console.log(charAddress);
-            $("#contentInformation > tbody").append("<tr><td id='charInfo'><a href='" + response[i].websiteURL + "'>" + charName + "</a><br><p>" + response[i].tagLine + "</p></td><td id='charMap'>" + charAddress + "</td>")
+            $("#contentInformation > tbody").append("<tr><td><a href='" + response[i].websiteURL + "'>" + charName + "</a><br><p id='charInfo'>" + response[i].tagLine + "</p></td><td id='charMap'>" + charAddress + "</td>")
             $("#search-term").val("");
         }
     })
