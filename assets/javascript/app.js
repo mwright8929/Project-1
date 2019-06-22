@@ -1,3 +1,5 @@
+var clicked = 0;
+
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
     charityPull();
@@ -5,10 +7,23 @@ $("#searchButton").on("click", function (event) {
     console.log("searchButton");
 });
 
+// To add charity info
 $("body").on("click", "#charInfo", function (response){
-    console.log("charInfo");
-    $("#contentInformation > tbody > tr > td > #charInfo").append("<div class='card m-3'><div class='card-body'>" + response.mission + "</div></div>");
+    console.log('clicked')
+    $(this).children('.charMission').css('display', 'block');
+    // if(clicked == 0){
+        // clicked = 1;
+        // $(this, '.invis').addClass('show')
+    // };
 });
+
+// To remove charity info
+// $("body").on("click", "#charMission", function(){
+//     if(clicked == 1){
+//         clicked == 0;
+//         $("#contentInformation > tbody > tr > td > #charInfo")
+//     };
+// });
 
 function charityPull() {
     console.log("got into charityPull");
@@ -36,7 +51,7 @@ function charityPull() {
             console.log(result);
             // console.log(charName);
             // console.log(charAddress);
-            $("#contentInformation > tbody").append("<tr><td><a href='" + response[i].websiteURL + "'>" + charName + "</a><br><p id='charInfo'>" + response[i].tagLine + "</p></td><td id='charMap'>" + charAddress + "</td>")
+            $("#contentInformation > tbody").append("<tr><td><a href='" + response[i].websiteURL + "'>" + charName + "</a><br><p id='charInfo'>" + response[i].tagLine + "<div class='card m-3 charMission' style='display:none'><div class='card-body'>" + response[i].mission + "</div></p></div></td><td id='charMap'>" + charAddress + "</td>");
             $("#search-term").val("");
         }
     })
