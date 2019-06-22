@@ -1,7 +1,13 @@
-$("#searchButton").on("click", function () {
+$("#searchButton").on("click", function (event) {
+    event.preventDefault();
     charityPull();
     populatePage();
-    // console.log("search for this:" + charityPull);
+    console.log("searchButton");
+});
+
+$("#charInfo").on("click", function (){
+    console.log("charInfo");
+    $("#contentInformation > tbody").append("<div class='card m-3'><div class='card-body'>" + response[i].mission + "</div></div>");
 });
 
 function charityPull() {
@@ -10,7 +16,6 @@ function charityPull() {
     console.log(searchTerm);
     var key = "811f3796206861ae75e263c9f204ca17";
     var APP_ID = "caa9091c";
-    
     // rated is used to make sure if the charity has been fully verified and rated
     // turn to false if it doesn't matter whether the charity hasn't been verified/rated
     var rated = "true";
@@ -31,7 +36,7 @@ function charityPull() {
             console.log(result);
             // console.log(charName);
             // console.log(charAddress);
-            $("#contentInformation > tbody").append("<tr><td id='charInfo'>" + charName + "</td><td id='charMap'>" + charAddress + "</td>")
+            $("#contentInformation > tbody").append("<tr><td id='charInfo'><a href='" + response[i].websiteURL + "'>" + charName + "</a><br><p>" + response[i].tagLine + "</p></td><td id='charMap'>" + charAddress + "</td>")
             $("#search-term").val("");
         }
     })
@@ -50,4 +55,5 @@ function populatePage() {
         // Establishes the thead as Charity Name and gives a tbody for information
         "<thead><tr><th scope='col'>Name</th><th scope='col'>Address</th></tr></thead><tbody></tbody></table></div></div>";
     $("#contentInformation").html(newPage);
+    console.log("populate this!");
 };
