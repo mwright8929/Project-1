@@ -50,4 +50,4 @@ function populatePage() {
         // Establishes the thead as Charity Name and gives a tbody for information
         "<thead><tr><th scope='col'>Name</th><th scope='col'>Address</th></tr></thead><tbody></tbody></table></div></div>";
     $("#contentInformation").html(newPage);
-}
+};
