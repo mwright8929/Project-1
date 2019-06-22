@@ -2,12 +2,12 @@ $("#searchButton").on("click", function (event) {
     event.preventDefault();
     charityPull();
     populatePage();
-    console.log("search for this:" + charityPull);
+    console.log("searchButton");
 });
 
 $("#charInfo").on("click", function (){
-    console.log("clicking names for fun");
-    $("#contentInformation > tbody").append("<div class='card m-3'><div class='card-body'>" + response[i].tagLine + "</div></div>");
+    console.log("charInfo");
+    $("#contentInformation > tbody").append("<div class='card m-3'><div class='card-body'>" + response[i].mission + "</div></div>");
 });
 
 function charityPull() {
@@ -36,7 +36,7 @@ function charityPull() {
             console.log(result);
             // console.log(charName);
             // console.log(charAddress);
-            $("#contentInformation > tbody").append("<tr><td id='charInfo'>" + charName + "</td><td id='charMap'>" + charAddress + "</td>")
+            $("#contentInformation > tbody").append("<tr><td id='charInfo'><a href='" + response[i].websiteURL + "'>" + charName + "</a><br><p>" + response[i].tagLine + "</p></td><td id='charMap'>" + charAddress + "</td>")
             $("#search-term").val("");
         }
     })
