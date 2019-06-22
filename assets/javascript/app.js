@@ -5,6 +5,11 @@ $("#searchButton").on("click", function (event) {
     console.log("search for this:" + charityPull);
 });
 
+$("#charInfo").on("click", function (){
+    console.log("clicking names for fun");
+    $("#contentInformation > tbody").append("<div class='card m-3'><div class='card-body'>" + response[i].tagLine + "</div></div>");
+});
+
 function charityPull() {
     console.log("got into charityPull");
     var searchTerm = $("#search-term").val();
