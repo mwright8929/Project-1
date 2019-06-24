@@ -2,18 +2,20 @@ img, #charInfo, #charMap {
     cursor: pointer;
 }
 
-body{
-    background-image: url("../images/charityBackground.jpg");
-    background-size:2000px;
-    background-repeat: no-repeat;
-    background-position-x:center;
+body {
+  background-image: url("../images/charityBackground.jpg");
+  background-size: 2000px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  margin: 0;
+  padding: 0;
 }
 
 #box1 {
   /*border:1px solid black;*/
   height: 400px;
   width: 600px;
-  margin: auto;
+  margin: 120px auto 0px;
 }
 
 .logo {
@@ -25,4 +27,36 @@ body{
   margin: 0px 0px 0px 250px;
 }
 
+.jumbotron {
+  background-image: url("../images/dark-paths.png");
+  background-repeat: repeat;
+  height: 150px;
+}
+
+.navLogo {
+  height: 60px;
+  margin-left: 50px;
+}
+
+.box2 {
+  /*comment out border when done*/
+  border: 1px solid black;
+  height: 800px;
+}
+
+.box3 {
+  /*comment out border when done*/
+  border: 1px solid black;
+  height: 500px;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.searchBox {
+  border: 1px solid black;
+  width: 500px;
+}
 /*# sourceMappingURL=style.css.map */
