@@ -2,9 +2,13 @@ var clicked = 0;
 
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
-    charityPull();
-    populatePage();
-    console.log("searchButton");
+    if($("#search-term").val() == ""){
+        console.log("missing term");
+    } else{
+        charityPull();
+        populatePage();
+        console.log("searchButton");
+    }
 });
 
 // To add charity info
