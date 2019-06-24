@@ -36,3 +36,13 @@ body{
 .show {
     display: block;
 }
+
+.charMap{
+    width: 30%;
+}
+
+@media screen and (max-width: 600px){
+    .charMap {
+        display: none;
+    };
+};

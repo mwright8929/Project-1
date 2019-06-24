@@ -50,13 +50,13 @@ function charityPull() {
             // console.log(charAddress);
             $("#contentInformation > tbody").append(
                 "<tr>" + 
-                    "<td>" + 
+                    "<td class='tableWidth>" + 
                         "<a href='" + response[i].websiteURL + "'>" + charName + "</a>" + "<br>" + 
                         "<p class='charInfo'>" + response[i].tagLine + "<br><br>" +
-                            "<span class='card m-3 charMission card-body invis'>" + response[i].mission + "</span>" + 
+                            "<span class='card m-3 card-body invis'>" + response[i].mission + "</span>" + 
                         "</p>" + 
                     "</td> " + 
-                    "<td id='charMap'>" + charAddress + "</td>" + 
+                    "<td class='charMap' id='charMap'>" + charAddress + "</td>" + 
                 "</tr>"
                 
             );
@@ -76,7 +76,7 @@ function populatePage() {
         // Creates a newly generated table w/ id contentInformation
         "<div class='card-body'><table class='table' id='contentInformation'>" +
         // Establishes the thead as Charity Name and gives a tbody for information
-        "<thead><tr><th scope='col'>Name</th><th scope='col'>Address</th></tr></thead><tbody></tbody></table></div></div>";
+        "<thead><tr><th scope='col'>Name</th><th scope='col' class='charMap'>Address</th></tr></thead><tbody></tbody></table></div></div>";
     $("#contentInformation").html(newPage);
     console.log("populate this!");
 };
