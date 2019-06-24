@@ -1,6 +1,6 @@
 var clicked = 0;
 
-$("#searchButton").on("click", function (event) {
+$("body").on("click", "#searchButton", function (event) {
     event.preventDefault();
     if($("#search-term").val() == ""){
         console.log("missing term");
@@ -25,6 +25,18 @@ $("body").on("click", ".charInfo", function (response){
     };
 });
 
+$("body").on("click", ".charMap", function (response){
+    console.log('clicked')
+    if(clicked == 0){
+        // Makes charity mission visible
+        clicked = 1;
+        $(this).children().removeClass('invis');
+    } else{
+        // Makes charity mission invisible
+        clicked = 0;
+        $(this).children().addClass('invis');
+    };
+});
 
 function charityPull() {
     console.log("got into charityPull");
@@ -60,7 +72,10 @@ function charityPull() {
                             "<span class='card m-3 card-body invis'>" + response[i].mission + "</span>" + 
                         "</p>" + 
                     "</td> " + 
-                    "<td class='charMap' id='charMap'>" + charAddress + "</td>" + 
+                    "<td class='charMap' id='charMap'>" +
+                        charAddress + "<br><br>" +
+                        "<span class='card m-3 card-body invis'>" + i + "</span>" + 
+                    "</td>" + 
                 "</tr>"
                 
             );
@@ -78,11 +93,12 @@ function populatePage() {
     // $("#box1").empty();
     $("#contentInformation").empty();
     // Temp placeholder for changing location of searchbar on search
-    // newSearch = "<a href='#'><img src='assets/images/charityLogo.gif' class='logo'></a>" +
+    // newSearch = 
     // "<form>" +
+    //     "<a href='#'><img src='assets/images/charityLogo.gif'></a>" +
     //     "<div class='form-group'>" +
-    //         "<input class='form-control txtbox' id='search-term' placeholder='Charity Name'>" +
-    //         "<button class='btn btn-primary searchbtn' id='searchButton'>Search</button>" +
+    //         "<input class='form-control' id='search-term' placeholder='Charity Name'>" +
+    //         "<button class='btn btn-primary' id='searchButton'>Search</button>" +
     //     "</div>" +
     // "</form>";
     newPage = "<div class='card'><div class='card-header'><h3>Charities</h3></div>" +
