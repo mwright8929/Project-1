@@ -1,17 +1,10 @@
-img, p{
-    cursor: pointer;
-}
-
-#charInfo p {
-    display: inline-block;
-}
+$b-size:2000px;
 
 body{
     background-image: url("../images/charityBackground.jpg");
-    background-size:2000px;
+    background-size:$b-size;
     background-repeat: no-repeat;
     background-position-x:center;
-    background-attachment: fixed;
 }
 
 #box1{
@@ -30,20 +23,3 @@ body{
     margin:0px 0px 0px 250px;
 }
 
-.invis {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
-.charMap{
-    width: 30%;
-}
-
-@media screen and (max-width: 600px){
-    .charMap {
-        display: none;
-    };
-};
