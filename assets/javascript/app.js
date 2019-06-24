@@ -8,22 +8,19 @@ $("#searchButton").on("click", function (event) {
 });
 
 // To add charity info
-$("body").on("click", "#charInfo", function (response){
+$("body").on("click", ".charInfo", function (response){
     console.log('clicked')
-    $(this).children('.charMission').css('display', 'block');
-    // if(clicked == 0){
-        // clicked = 1;
-        // $(this, '.invis').addClass('show')
-    // };
+    if(clicked == 0){
+        // Makes charity mission visible
+        clicked = 1;
+        $(this).children().removeClass('invis');
+    } else{
+        // Makes charity mission invisible
+        clicked = 0;
+        $(this).children().addClass('invis');
+    };
 });
 
-// To remove charity info
-// $("body").on("click", "#charMission", function(){
-//     if(clicked == 1){
-//         clicked == 0;
-//         $("#contentInformation > tbody > tr > td > #charInfo")
-//     };
-// });
 
 function charityPull() {
     console.log("got into charityPull");
@@ -51,7 +48,18 @@ function charityPull() {
             console.log(result);
             // console.log(charName);
             // console.log(charAddress);
-            $("#contentInformation > tbody").append("<tr><td><a href='" + response[i].websiteURL + "'>" + charName + "</a><br><p id='charInfo'>" + response[i].tagLine + "<div class='card m-3 charMission' style='display:none'><div class='card-body'>" + response[i].mission + "</div></p></div></td><td id='charMap'>" + charAddress + "</td>");
+            $("#contentInformation > tbody").append(
+                "<tr>" + 
+                    "<td>" + 
+                        "<a href='" + response[i].websiteURL + "'>" + charName + "</a>" + "<br>" + 
+                        "<p class='charInfo'>" + response[i].tagLine + "<br><br>" +
+                            "<span class='card m-3 charMission card-body invis'>" + response[i].mission + "</span>" + 
+                        "</p>" + 
+                    "</td> " + 
+                    "<td id='charMap'>" + charAddress + "</td>" + 
+                "</tr>"
+                
+            );
             $("#search-term").val("");
         }
     })
