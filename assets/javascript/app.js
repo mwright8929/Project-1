@@ -71,12 +71,22 @@ function charityPull() {
 };
 
 function populatePage() {
+    // $("#box1").empty();
     $("#contentInformation").empty();
+    // Temp placeholder for changing location of searchbar on search
+    // newSearch = "<a href='#'><img src='assets/images/charityLogo.gif' class='logo'></a>" +
+    // "<form>" +
+    //     "<div class='form-group'>" +
+    //         "<input class='form-control txtbox' id='search-term' placeholder='Charity Name'>" +
+    //         "<button class='btn btn-primary searchbtn' id='searchButton'>Search</button>" +
+    //     "</div>" +
+    // "</form>";
     newPage = "<div class='card'><div class='card-header'>Charities</div>" +
         // Creates a newly generated table w/ id contentInformation
         "<div class='card-body'><table class='table' id='contentInformation'>" +
         // Establishes the thead as Charity Name and gives a tbody for information
         "<thead><tr><th scope='col'>Name</th><th scope='col' class='charMap'>Address</th></tr></thead><tbody></tbody></table></div></div>";
+    // $("#box1").html(newSearch);
     $("#contentInformation").html(newPage);
     console.log("populate this!");
 };
