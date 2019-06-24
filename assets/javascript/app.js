@@ -54,7 +54,7 @@ function charityPull() {
             // console.log(charAddress);
             $("#contentInformation > tbody").append(
                 "<tr>" + 
-                    "<td class='tableWidth>" + 
+                    "<td>" +
                         "<a href='" + response[i].websiteURL + "'>" + charName + "</a>" + "<br>" + 
                         "<p class='charInfo'>" + response[i].tagLine + "<br><br>" +
                             "<span class='card m-3 card-body invis'>" + response[i].mission + "</span>" + 
