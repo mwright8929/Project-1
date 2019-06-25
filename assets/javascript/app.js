@@ -60,7 +60,7 @@ function charityPull() {
             var result = response[i];
             console.log("got into then");
             charName = response[i].charityName;
-            charAddress = (response[i].mailingAddress.streetAddress1 + "<br>" + response[i].mailingAddress.city + ", " + response[i].mailingAddress.stateOrProvince + "<br>" + response[i].mailingAddress.postalCode);
+            charAddress = (response[i].mailingAddress.streetAddress1 + ", " + response[i].mailingAddress.city + ", " + response[i].mailingAddress.stateOrProvince + ", " + response[i].mailingAddress.postalCode);
             console.log(result);
             // console.log(charName);
             // console.log(charAddress);
@@ -72,8 +72,8 @@ function charityPull() {
                             "<span class='card m-3 card-body invis'>" + response[i].mission + "</span>" + 
                         "</p>" + 
                     "</td> " + 
-                    "<td class='charMap' id='charMap'>" +
-                        charAddress + "<br><br>" +
+                    "<td class='charMap'><p>" +
+                        charAddress + "</p><br><br>" +
                         "<span class='card m-3 card-body invis'>" + i + "</span>" + 
                     "</td>" + 
                 "</tr>"

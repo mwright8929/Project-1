@@ -2,7 +2,7 @@ img, p{
     cursor: pointer;
 }
 
-#charInfo p {
+.charInfo p, .charMap p {
     display: inline-block;
 }
 
