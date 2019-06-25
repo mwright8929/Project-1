@@ -1,8 +1,5 @@
-img, p{
+img, .charInfo{
     cursor: pointer;
-}
-
-.charInfo p, .charMap p {
     display: inline-block;
 }
 
