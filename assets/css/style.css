@@ -2,7 +2,7 @@ img, p{
     cursor: pointer;
 }
 
-#charInfo p {
+.charInfo p, .charMap p {
     display: inline-block;
 }
 
@@ -14,9 +14,10 @@ body{
     background-attachment: fixed;
 }
 
+#mapid { height: 180px; }
+
 #box1{
     /*border:1px solid black;*/
-    height:400px;
     width:600px;
     margin:auto;
 }
@@ -28,6 +29,21 @@ body{
 
 .search{
     margin:0px 0px 0px 250px;
+}
+
+<<<<<<< HEAD
+.card-header{
+    font-size: 14, bold;
+     background: rgba(244, 244, 244, 0.3);
+    
+}
+
+.card-body{
+    background-color: rgba(0, 0, 255, 0.3);
+}
+=======
+.newsearch {
+    float: right;
 }
 
 .invis {
@@ -47,3 +63,4 @@ body{
         display: none;
     };
 };
+>>>>>>> 60c97f8ccb39505e7543055c5f2ac85062b51f49
