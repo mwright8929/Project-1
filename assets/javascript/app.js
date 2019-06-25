@@ -120,22 +120,35 @@ function populatePage() {
     // Temp placeholder for changing location of searchbar on search
     newSearch =
         "<form>" +
-        "<div class='form-group'>" +
-        "<a href='index.html'><img class='float-left' style='max-width: 400px; margin-top: -32px;' src='assets/images/charityLogo.gif'></a>" +
-        "<button class='btn btn-primary newsearch' style='max-width: 100px; margin-top: 50px; margin-right: 20px;' id='searchButton'>Search</button>" +
-        "<input class='form-control newsearch' style='max-width: 200px; margin-top: 50px; margin-right: 20px;' id='search-term' placeholder='Charity Name'>" +
-
-        "</div>" +
+            "<div class='form-group'>" +
+                "<a href='index.html'><img class='float-left' style='max-width: 400px; margin-top: -32px;' src='assets/images/charityLogo.gif'></a>" +
+                "<button class='btn btn-primary newsearch' style='max-width: 100px; margin-top: 50px; margin-right: 20px;' id='searchButton'>Search</button>" +
+                "<input class='form-control newsearch' style='max-width: 200px; margin-top: 50px; margin-right: 20px;' id='search-term' placeholder='Charity Name'>" +
+            "</div>" +
         "</form>";
-    newPage = "<div class='card'><div class='card-header border-rounded' style='margin-top: 150px;'><h3 style='margin-top: -100px;'>Charities</h3></div>" +
+    newPage =
+            "<div class='card'>" +
+                "<div class='card-header border-rounded' style='margin-top: 150px;'>" +
+                    "<h3 style='margin-top: -100px;'>Charities</h3>" +
+                "</div>" +
         // Creates a newly generated table w/ id contentInformation
-        "<div class='card-body'><table class='table' style='background-color:rgba(211, 211, 211, 0.5)' id='contentInformation'>" +
+                "<div class='card-body'>" +
+                    "<table class='table' style='background-color:rgba(211, 211, 211, 0.5)' id='contentInformation'>" +
         // Establishes the thead as Charity Name and gives a tbody for information
-        "<thead><tr><th scope='col'>Name</th><th scope='col' class='charMap'>Address</th></tr></thead><tbody></tbody></table></div></div>";
+                        "<thead>"+
+                            "<tr>" +
+                                "<th scope='col'>Name</th>" +
+                                "<th scope='col' class='charMap'>Address</th>" +
+                            "</tr>" +
+                        "</thead>" +
+                        "<tbody></tbody>" +
+                    "</table>" +
+                "</div>" +
+            "</div>";
     $("#box2").html(newSearch);
     $("#contentInformation").html(newPage);
     // $("#footer").append("<footer><div class='text-center ' style='background-color:rgba(167, 203, 217, .6); padding-top: 20px; padding-bottom: 20px; margin-top: 10px;'>Copyright</div></footer>");
-    $("#footer").append(
+    $("#footer").html(
         "<footer class='footer text-center' style='background-color:rgba(167, 203, 217, .6); padding-top: 20px; padding-bottom: 20px; margin-top: 10px;'>" +
             "<div class='container'>" +
                 "<span>Copyright &copy; 2019</span>" +
