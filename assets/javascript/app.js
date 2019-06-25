@@ -1,16 +1,4 @@
-// $("#searchButton").on("click", async function (event) {
-//     event.preventDefault();
-//     var returnAddresses = [];
-//     var returnedGeocodes = [];
-
-//     populatePage();
-//     returnAddresses = await charityPull()
-//     console.log('Address')
-//     returnedGeocodes = await geocode(returnAddresses);
-//     drawMap(returnedGeocodes);
-  
 var clicked = 0;
-
 
 $("body").on("click", "#searchButton", async function (event) {
     event.preventDefault();
@@ -19,10 +7,10 @@ $("body").on("click", "#searchButton", async function (event) {
         $("#search-term").val("");
     } else {
         populatePage();
-        // charityPull();
+        $("#mapid").css("display", "block");
+        charityPull();
         var returnAddresses = [];
         var returnedGeocodes = [];
-    
         returnAddresses = await charityPull()
         returnedGeocodes = await geocode(returnAddresses);
         drawMap(returnedGeocodes);
@@ -31,7 +19,7 @@ $("body").on("click", "#searchButton", async function (event) {
 
 // To add charity info
 $("body").on("click", ".charInfo", function (response) {
-    console.log('clicked')
+    // console.log('clicked')
     if (clicked == 0) {
         // Makes charity mission visible
         clicked = 1;
@@ -44,8 +32,8 @@ $("body").on("click", ".charInfo", function (response) {
 });
 
 $("body").on("click", ".charMap", function (response) {
-    console.log('clicked');
-    console.log($(this).context.innerText);
+    // console.log('clicked');
+    // console.log($(this).context.innerText);
     if (clicked == 0) {
         // Makes charity mission visible
         clicked = 1;
@@ -83,41 +71,41 @@ function charityPull() {
             charAddress = (response[i].mailingAddress.streetAddress1 + ", " + response[i].mailingAddress.city + ", " + response[i].mailingAddress.stateOrProvince + ", " + response[i].mailingAddress.postalCode);
             pullAddresses.push(charAddress);
             // console.log("test thisss " + pullAddresses);
-            //console.log(result);
+            // console.log(result);
             // console.log(charName);
             // console.log(charAddress);
             $("#contentInformation > tbody").append(
                 "<tr>" +
-                "<td>" +
-                "<a href='" + response[i].websiteURL + "'>" + charName + "</a>" + "<br>" +
-                "<p class='charInfo'>" + response[i].tagLine + "<br><br>" +
-                "<span class='card m-3 card-body invis'>" + response[i].mission + "</span>" +
-                "</p>" +
-                "</td> " +
-                "<td class='charMap'><p>" +
-                charAddress + "</p><br><br>" +
-                "<span class='card m-3 card-body invis'>" + i + "</span>" +
-                "</td>" +
+                    "<td>" +
+                        "<a href='" + response[i].websiteURL + "'>" + charName + "</a>" + "<br>" +
+                        "<p class='charInfo'>" + response[i].tagLine + "<br><br>" +
+                        "<span class='card m-3 card-body invis'>" + response[i].mission + "</span>" +
+                        "</p>" +
+                    "</td> " +
+                    "<td class='charMap'>" + 
+                        "<p>" +
+                            charAddress + 
+                        "</p><br><br>" +
+                        // Commented out until further use
+                        // "<span class='card m-3 card-body invis'>" + i + "</span>" +
+                    "</td>" +
                 "</tr>"
-
             );
             $("#search-term").val("");
         }
         // console.log("test thisss " + pullAddresses);
         return pullAddresses;
-    })
-        .fail(function (message) {
-            console.log("failed!");
-            console.log(message);
-        });
-
+    }).fail(function (message) {
+        console.log("failed!");
+        console.log(message);
+    });
 };
 
 function populatePage() {
     $("#box1").empty();
     $("#contentInformation").empty();
     $("#footer").empty();
-    // Temp placeholder for changing location of searchbar on search
+    // Placeholder for changing location of searchbar on search
     newSearch =
         "<form>" +
             "<div class='form-group'>" +
@@ -129,7 +117,7 @@ function populatePage() {
     newPage =
             "<div class='card'>" +
                 "<div class='card-header border-rounded' style='margin-top: 150px;'>" +
-                    "<h3 style='margin-top: -100px;'>Charities</h3>" +
+                    "<h3 style='margin-top: -50px;'>Charities</h3>" +
                 "</div>" +
         // Creates a newly generated table w/ id contentInformation
                 "<div class='card-body'>" +
@@ -154,11 +142,11 @@ function populatePage() {
                 "<span>Copyright &copy; 2019</span>" +
             "</div>" +
         "</footer>");
-    console.log("populate this!");
+    // console.log("populate this!");
 };
 
 async function geocode(rxAddresses){
-    console.log('addys',rxAddresses)
+    // console.log('addys',rxAddresses)
        var pullGeocodes = [];
        //var addressGeocode = null;
        var api_key = 'ee0a05710dd5c51e4a51d0457cdefa055075405';
@@ -184,22 +172,17 @@ async function geocode(rxAddresses){
 
 function drawMap(rxGeocodes) {
     var mapboxKey = "pk.eyJ1Ijoid2JlcnJpbmciLCJhIjoiY2p3endsODB1MGpnMDQ5czgwM2hwczh3NiJ9.Bx-jeamSp03diPGM5dCGZg";
-
     var mymap = L.map('mapid').setView([39.8283, -98.5795], 3);
-
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: mapboxKey
-}).addTo(mymap);
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: mapboxKey
+    }).addTo(mymap);
 
-for (var i = 0; i < rxGeocodes.length; i++){
-    var lat = rxGeocodes[i][0];
-    var lon = rxGeocodes[i][1];
-    var marker = L.marker([lat, lon]).addTo(mymap);
-
-}
-
-
+    for (var i = 0; i < rxGeocodes.length; i++){
+        var lat = rxGeocodes[i][0];
+        var lon = rxGeocodes[i][1];
+        var marker = L.marker([lat, lon]).addTo(mymap);
+    };
 };
