@@ -1,5 +1,9 @@
-img, #charInfo, #charMap {
+img, p{
     cursor: pointer;
+}
+
+.charInfo p, .charMap p {
+    display: inline-block;
 }
 
 body{
@@ -7,13 +11,13 @@ body{
     background-size:2000px;
     background-repeat: no-repeat;
     background-position-x:center;
+    background-attachment: fixed;
 }
 
 #mapid { height: 180px; }
 
 #box1{
     /*border:1px solid black;*/
-    height:400px;
     width:600px;
     margin:auto;
 }
@@ -27,6 +31,7 @@ body{
     margin:0px 0px 0px 250px;
 }
 
+<<<<<<< HEAD
 .card-header{
     font-size: 14, bold;
      background: rgba(244, 244, 244, 0.3);
@@ -36,3 +41,26 @@ body{
 .card-body{
     background-color: rgba(0, 0, 255, 0.3);
 }
+=======
+.newsearch {
+    float: right;
+}
+
+.invis {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.charMap{
+    width: 30%;
+}
+
+@media screen and (max-width: 600px){
+    .charMap {
+        display: none;
+    };
+};
+>>>>>>> 60c97f8ccb39505e7543055c5f2ac85062b51f49
