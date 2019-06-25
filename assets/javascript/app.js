@@ -1,3 +1,16 @@
+// Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDL8Rv8EdHEw17jbAQvlDscBEJZka9V8Qk",
+    authDomain: "charity-needed.firebaseapp.com",
+    databaseURL: "https://charity-needed.firebaseio.com",
+    projectId: "charity-needed",
+    storageBucket: "",
+    messagingSenderId: "20069222833",
+    appId: "1:20069222833:web:29a642c2660f064d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
 var clicked = 0;
 
 $("body").on("click", "#searchButton", function (event) {
