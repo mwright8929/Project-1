@@ -9,6 +9,8 @@ body{
     background-position-x:center;
 }
 
+#mapid { height: 180px; }
+
 #box1{
     /*border:1px solid black;*/
     height:400px;
@@ -23,4 +25,14 @@ body{
 
 .search{
     margin:0px 0px 0px 250px;
+}
+
+.card-header{
+    font-size: 14, bold;
+     background: rgba(244, 244, 244, 0.3);
+    
+}
+
+.card-body{
+    background-color: rgba(0, 0, 255, 0.3);
 }
