@@ -16,7 +16,6 @@ body{
 
 #box1{
     /*border:1px solid black;*/
-    height:400px;
     width:600px;
     margin:auto;
 }
@@ -28,6 +27,10 @@ body{
 
 .search{
     margin:0px 0px 0px 250px;
+}
+
+.newsearch {
+    float: right;
 }
 
 .invis {

@@ -26,7 +26,8 @@ $("body").on("click", ".charInfo", function (response){
 });
 
 $("body").on("click", ".charMap", function (response){
-    console.log('clicked')
+    console.log('clicked');
+    console.log($(this).context.innerText);
     if(clicked == 0){
         // Makes charity mission visible
         clicked = 1;
@@ -90,23 +91,24 @@ function charityPull() {
 };
 
 function populatePage() {
-    // $("#box1").empty();
+    $("#box1").empty();
     $("#contentInformation").empty();
     // Temp placeholder for changing location of searchbar on search
-    // newSearch = 
-    // "<form>" +
-    //     "<a href='#'><img src='assets/images/charityLogo.gif'></a>" +
-    //     "<div class='form-group'>" +
-    //         "<input class='form-control' id='search-term' placeholder='Charity Name'>" +
-    //         "<button class='btn btn-primary' id='searchButton'>Search</button>" +
-    //     "</div>" +
-    // "</form>";
-    newPage = "<div class='card'><div class='card-header'><h3>Charities</h3></div>" +
+    newSearch = 
+    "<form>" +
+        "<div class='form-group'>" +
+            "<a href='index.html'><img class='float-left' style='max-width: 400px; margin-top: -32px;' src='assets/images/charityLogo.gif'></a>" +
+            "<button class='btn btn-primary newsearch' style='max-width: 100px; margin-top: 50px;' id='searchButton'>Search</button>" +
+            "<input class='form-control newsearch' style='max-width: 200px; margin-top: 50px; margin-right: 20px;' id='search-term' placeholder='Charity Name'>" +
+            
+        "</div>" +
+    "</form>";
+    newPage = "<div class='card'><div class='card-header' style='margin-top: 150px;'><h3 style='margin-top: -100px;'>Charities</h3></div>" +
         // Creates a newly generated table w/ id contentInformation
         "<div class='card-body'><table class='table' style='background-color:rgba(211, 211, 211, 0.25)' id='contentInformation'>" +
         // Establishes the thead as Charity Name and gives a tbody for information
         "<thead><tr><th scope='col'>Name</th><th scope='col' class='charMap'>Address</th></tr></thead><tbody></tbody></table></div></div>";
-    // $("#box1").html(newSearch);
+    $("#box2").html(newSearch);
     $("#contentInformation").html(newPage);
     console.log("populate this!");
 };
