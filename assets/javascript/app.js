@@ -1,4 +1,5 @@
 var clicked = 0;
+var searchTerm;
 
 $("body").on("click", "#searchButton", async function (event) {
     event.preventDefault();
@@ -6,14 +7,16 @@ $("body").on("click", "#searchButton", async function (event) {
         console.log("missing term");
         $("#search-term").val("");
     } else {
+        searchTerm = $("#search-term").val().trim();
         populatePage();
         $("#mapid").css("display", "block");
-        charityPull();
+        // charityPull();
         var returnAddresses = [];
         var returnedGeocodes = [];
         returnAddresses = await charityPull()
         returnedGeocodes = await geocode(returnAddresses);
         drawMap(returnedGeocodes);
+        return searchTerm;
     };
 });
 
@@ -48,8 +51,6 @@ $("body").on("click", ".charMap", function (response) {
 function charityPull() {
     var pullAddresses =[];
     console.log("got into charityPull");
-    var searchTerm = $("#search-term").val().trim();
-    console.log(searchTerm);
     var key = "811f3796206861ae75e263c9f204ca17";
     var APP_ID = "caa9091c";
     // rated is used to make sure if the charity has been fully verified and rated
@@ -58,7 +59,7 @@ function charityPull() {
     // rating is used to make sure only charities that are ranked 4-starts/4-stars are shown
     var rating = "4";
     var queryURL = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + APP_ID + "&app_key=" + key + "&search=" + searchTerm + "&rated=" + rated + "&minRating=" + rating;
-    //console.log(queryURL);
+    console.log(queryURL);
     return $.ajax({
         url: queryURL,
         method: "GET",
@@ -105,6 +106,7 @@ function populatePage() {
     $("#box1").empty();
     $("#contentInformation").empty();
     $("#footer").empty();
+    // $("#mapid").empty();
     // Placeholder for changing location of searchbar on search
     newSearch =
         "<form>" +
