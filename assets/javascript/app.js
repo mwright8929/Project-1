@@ -11,6 +11,7 @@
   
 var clicked = 0;
 
+
 $("body").on("click", "#searchButton", async function (event) {
     event.preventDefault();
     if ($("#search-term").val().trim() == "") {
