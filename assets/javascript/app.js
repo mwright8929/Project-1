@@ -34,19 +34,19 @@ $("body").on("click", ".charInfo", function (response) {
     };
 });
 
-$("body").on("click", ".charMap", function (response) {
-    // console.log('clicked');
-    // console.log($(this).context.innerText);
-    if (clicked == 0) {
-        // Makes charity mission visible
-        clicked = 1;
-        $(this).children().removeClass('invis');
-    } else {
-        // Makes charity mission invisible
-        clicked = 0;
-        $(this).children().addClass('invis');
-    };
-});
+// $("body").on("click", ".charMap", function (response) {
+//     // console.log('clicked');
+//     // console.log($(this).context.innerText);
+//     if (clicked == 0) {
+//         // Makes charity mission visible
+//         clicked = 1;
+//         $(this).children().removeClass('invis');
+//     } else {
+//         // Makes charity mission invisible
+//         clicked = 0;
+//         $(this).children().addClass('invis');
+//     };
+// });
 
 function charityPull() {
     var pullAddresses =[];
