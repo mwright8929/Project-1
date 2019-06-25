@@ -10,7 +10,6 @@ $("body").on("click", "#searchButton", async function (event) {
         searchTerm = $("#search-term").val().trim();
         populatePage();
         $("#mapid").css("display", "block");
-        // charityPull();
         var returnAddresses = [];
         var returnedGeocodes = [];
         returnAddresses = await charityPull()
@@ -33,20 +32,6 @@ $("body").on("click", ".charInfo", function (response) {
         $(this).children().addClass('invis');
     };
 });
-
-// $("body").on("click", ".charMap", function (response) {
-//     // console.log('clicked');
-//     // console.log($(this).context.innerText);
-//     if (clicked == 0) {
-//         // Makes charity mission visible
-//         clicked = 1;
-//         $(this).children().removeClass('invis');
-//     } else {
-//         // Makes charity mission invisible
-//         clicked = 0;
-//         $(this).children().addClass('invis');
-//     };
-// });
 
 function charityPull() {
     var pullAddresses =[];
@@ -106,7 +91,6 @@ function populatePage() {
     $("#box1").empty();
     $("#contentInformation").empty();
     $("#footer").empty();
-    // $("#mapid").empty();
     // Placeholder for changing location of searchbar on search
     newSearch =
         "<form>" +
@@ -137,7 +121,6 @@ function populatePage() {
             "</div>";
     $("#box2").html(newSearch);
     $("#contentInformation").html(newPage);
-    // $("#footer").append("<footer><div class='text-center ' style='background-color:rgba(167, 203, 217, .6); padding-top: 20px; padding-bottom: 20px; margin-top: 10px;'>Copyright</div></footer>");
     $("#footer").html(
         "<footer class='footer text-center' style='background-color:rgba(167, 203, 217, .6); padding-top: 20px; padding-bottom: 20px; margin-top: 10px;'>" +
             "<div class='container'>" +
