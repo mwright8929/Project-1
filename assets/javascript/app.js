@@ -1,5 +1,6 @@
 var clicked = 0;
 var searchTerm;
+var x = window.matchMedia("(max-width: 600px)");
 
 $("body").on("click", "#searchButton", async function (event) {
     event.preventDefault();
@@ -9,7 +10,11 @@ $("body").on("click", "#searchButton", async function (event) {
     } else {
         searchTerm = $("#search-term").val().trim();
         populatePage();
-        $("#mapid").css("display", "block");
+        if(x.matches){
+            console.log("nothing");
+        } else {
+            ("#mapid").css("display", "block");
+        }
         var returnAddresses = [];
         var returnedGeocodes = [];
         returnAddresses = await charityPull()
