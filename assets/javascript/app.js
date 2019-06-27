@@ -13,7 +13,7 @@ $("body").on("click", "#searchButton", async function (event) {
         if(x.matches){
             console.log("nothing");
         } else {
-            ("#mapid").css("display", "block");
+            $("#mapid").css("display", "block");
         }
         var returnAddresses = [];
         var returnedGeocodes = [];
